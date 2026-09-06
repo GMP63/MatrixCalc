@@ -1,0 +1,40 @@
+<form id="currentForm" name="currentForm" min-width="1440" overflow-x: scroll>
+  <label id="dimensions"></label><br>
+  <label id="operation"></label><br><br>
+  <h3>6) Result:</h3>
+  <label id="lbl-result"></label><br>
+  <section id="result"></section><br>
+  <label id="lbl-result2"></label><br>
+  <section id="result2"></section><br>
+  <input class="cpyButton" id="Copy2Clipboard" type="button" value="Copy" onclick="copyToClipboard(0)">
+  <input class="cpyButton" id="Save_Matrix1" type="button" value="Save Matrix" onclick="saveMatrixToFile(0)">
+  <button class="cpyButton" id="Memory" type="button" onclick="updateMemoryButtonVisibility(6)">Store to memory</button>
+  <input class="navButton" id="prev" type="button" value="<-- Prev" onclick="operandQty == 1 ? goStep3(true) : goStep5(true)">
+  <input class="navButton" id="next" type="button" value="All Again" onclick="allAgain()">
+  <div id="MemoryAccess">
+    <br>
+    <label class="memLabel" for="Sto1">1</label>
+    <label class="memLabel" for="Sto2">2</label>
+    <label class="memLabel" for="Sto3">3</label>
+    <label class="memLabel" for="Sto4">4</label>
+    <label class="memLabel" for="Sto5"> 5</label>
+    <label class="memLabel" for="Sto6"> 6</label>
+    <label class="memLabel" for="Sto7"> 7</label>
+    <label class="memLabel" for="Sto8"> 8 </label>
+    <label class="memLabel" for="Sto9"> 9 </label><br>
+    <button class="memButton" id="Sto1" name="Sto1" type="button" onclick="onResultStore('matSel', 1)">Sto</button>
+    <button class="memButton" id="Sto2" name="Sto2" type="button" onclick="onResultStore('matSel', 2)">Sto</button>
+    <button class="memButton" id="Sto3" name="Sto3" type="button" onclick="onResultStore('matSel', 3)">Sto</button>
+    <button class="memButton" id="Sto4" name="Sto4" type="button" onclick="onResultStore('matSel', 4)">Sto</button>
+    <button class="memButton" id="Sto5" name="Sto5" type="button" onclick="onResultStore('matSel', 5)">Sto</button>
+    <button class="memButton" id="Sto6" name="Sto6" type="button" onclick="onResultStore('matSel', 6)">Sto</button>
+    <button class="memButton" id="Sto7" name="Sto7" type="button" onclick="onResultStore('matSel', 7)">Sto</button>
+    <button class="memButton" id="Sto8" name="Sto8" type="button" onclick="onResultStore('matSel', 8)">Sto</button>
+    <button class="memButton" id="Sto9" name="Sto9" type="button" onclick="onResultStore('matSel', 9)">Sto</button><br>
+    <br><label for="matrixSelector">Result matrix to Save</label>
+    <select name="matrixSelector" id="matSel">
+      <option value="1">Upper</option>
+      <option value="2">Lower</option>
+    </select>
+  </div><br>
+</form>

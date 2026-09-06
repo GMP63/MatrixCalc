@@ -1,0 +1,148 @@
+body {
+	background: url();
+	background-color: #DCC0A0;
+	font-family: 'Verdana';font-size: 16px;
+}
+
+marquee {
+  color: wheat;
+}
+
+.container {
+	overflow: auto;
+	resize: both;
+	height: 360px;
+	width: 480px;
+}
+
+.rowall {
+	resize: both;
+	height: 360px;
+	width: 480px;
+}
+
+.col-left {
+	float: left;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	resize: both;
+	height: 360px;
+	width: 360px;
+}
+
+.col-right {
+	float: right;
+	align-items: flex-start;
+	justify-content: right;
+	height: 360px;
+	width: 120px;
+}
+
+.col-mem {
+	float: right;
+	align-items: flex-start;
+	justify-content: right;
+	height: 360px;
+	width: 120px;
+}
+
+#contenedor {
+	width: 2048px;
+	padding: 8px 8px 8px 8px;
+	margin: 20px auto;
+	background-color: #DCC0A0;
+	border-radius: 50px;
+	border-top: 2px solid #FFF;
+	border-right: 2px solid #FFF;
+	border-bottom: 2px solid #C1C1C1;
+	border-left: 2px solid #C1C1C1;
+	box-shadow: -3px 3px 7px rgba(0, 0, 0, .6), inset -100px 0px 100px rgba(255, 255, 255, .5);
+}
+
+.pasteInput {
+	height: 12px;
+	text-align: left;
+}
+
+.inputParam {
+	height: 12px;
+	padding: 4 0px;
+	text-align: right;
+	font-weight: 500;
+}
+
+.inputBox {
+	height: 18px;
+	padding: 4 0px;
+	border-radius: 4px;
+	border-top: 2px solid #C1C1C1;
+	border-right: 2px solid #C1C1C1;
+	border-bottom: 2px solid #FFF;
+	border-left: 2px solid #FFF;
+	background-color: #FFF;
+	color: #101010;
+	text-align: right;
+	font-weight: 500;
+}
+
+.memLabel {
+	display: inline-block;
+	width:  36px;
+	text-align: center;
+}
+
+.button, .cpyButton, .memButton, .navButton {
+	color: #181818;
+}
+
+.cpyButton, .memButton, .navButton {
+	color: #181818;
+	text-shadow: 1px 1px 0px #FFF;
+	background-color: #B1B1B1;
+	border-top: 2px solid #FFF;
+	border-right: 2px solid #FFF;
+	border-bottom: 2px solid #C1C1C1;
+	border-left: 2px solid #C1C1C1;
+	border-radius: 4px;
+	box-shadow: 0px 0px 2px #030303, inset 0px -20px 1px #DCDCDC;
+}
+
+.memButton {
+	width:  36px;
+	height: 21px;
+}
+
+.memButton:disabled, .cpyButton:disabled, .navButton:disabled {
+  background-color: #ccc;
+  color: #AAA;
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.6;
+}
+
+.cpyButton:hover {
+	box-shadow: 0px 0px 2px #3c498d, inset 0px -20px 1px #8295F3;
+	border-top: 2px solid #A2B5FF;
+	border-right: 2px solid #A2B5f3;
+	border-bottom: 2px solid #5c698d;
+	border-left: 2px solid #5c698d;
+}
+
+.memButton:hover {
+	box-shadow: 0px 0px 2px #3c498d, inset 0px -20px 1px #6fb640;
+	border-top: 2px solid #DEFEC8;
+	border-right: 2px solid #DEFEC8;
+	border-bottom: 2px solid #8fb179;
+	border-left: 2px solid #8fb179;
+}
+
+.navButton:hover {
+	background-color: #DEFEC8;
+	box-shadow: 0px 0px 2px #B99D80, inset 0px -20px 1px #FFBA75;
+	border-top: 2px solid #FFE080;
+	border-right: 2px solid #FFE080;
+	border-bottom: 2px solid #BDA186;
+	border-left: 2px solid #BDA186;
+}
+

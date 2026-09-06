@@ -1,0 +1,42 @@
+<form id="currentForm" name="currentForm">
+  <h3>1) Choose the matrix operation:</h3>
+  <label for="operation">Operation</label>
+  <select name="operation" id="operation" onchange="setOp(value)">
+    <optgroup label="Unary operations">
+      <option value="d">Determinant</option>
+      <option value="e">Eigenpairs</option>
+      <option value="i">Invert</option>
+      <option value="n">Negate</option>
+      <option value="^">Power</option>
+      <option value="r">QR decomposition</option>
+      <option value="t">Transpose</option>
+    </optgroup>
+    <optgroup label="Binary operations">
+      <option value="+">Add</option>
+      <option value="-">Substract</option>
+      <option value="*">Multiply</option>
+      <option value="/">Divide</option>
+      <option value="\">linear System Solve</option>
+      <option value=".">Inner Product</option>
+      <option value="X">Outer Product</option>
+      <option value="p">Projection</option>
+    </optgroup>
+  </select><br><br>
+  <section id="eigenmethod">
+    <label for="method">Method</label>
+    <select name="method" id="method" onchange="setOp(value, 1)">
+      <option value="e">auto</option>
+      <option value="q">Francis's QR</option>
+      <option value="h">H2HQR</option>
+      <option value="g">QRGR</option>
+      <option value="s">H2HSRQR</option>
+    </select>
+  </section>
+  <section id="params">
+    <h4><b>Optional Parameters:</b></h4>
+    <label for="txtZeroThreshold">zero Threshold</label><br>
+    <input class="inputParam" id="txtZeroThreshold" type="text" size="6" value="0">
+  </section><br><br><br>
+  <button class="navButton" id="cont" type="button" onclick="goStep2()">Continue</button>
+</form>
+

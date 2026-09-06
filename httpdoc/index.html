@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <html lang="en">
+    <title>Elemental matrix input.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!-- Inherited styles by pointing the link below to an .css file. -->
+    <link rel="stylesheet" type="text/css" href="css/matrix-input.css"/>
+
+    <!-- Local styles are placed in the section below (style). -->
+    <style>
+    </style>
+    </html>
+  </head>
+
+  <body>
+    <!-- Javascript code goes in the section below. -->
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/calculation.js"></script>
+    <script type="text/javascript" src="js/io.js"></script>
+    <script type="text/javascript"> window.onload = onMainPageLoad</script>
+
+    <div class="container" id="main-container">
+      <div class="rowall" id="main-row">
+        <div class="col-left" id="main-col" text-left>
+          <h1 class="text-center"><u>Matrix Calculator</u></h1>
+          <form id="currentForm" name="currentForm">
+            <h3>1) Choose the matrix operation:</h3>
+            <label for="operation">Operation</label>
+            <select name="operation" id="operation" onchange="setOp(value)">
+              <optgroup label="Unary operations">
+                <option value="d">Determinant</option>
+                <option value="e">Eigenpairs</option>
+                <option value="i">Invert</option>
+                <option value="n">Negate</option>
+                <option value="^">Power</option>
+                <option value="r">QR decomposition</option>
+                <option value="t">Transpose</option>
+              </optgroup>
+              <optgroup label="Binary operations">
+                <option value="+">Add</option>
+                <option value="-">Substract</option>
+                <option value="*">Multiply</option>
+                <option value="/">Divide</option>
+                <option value="\">linear System Solve</option>
+                <option value=".">Inner Product</option>
+                <option value="X">Outer Product</option>
+                <option value="p">Projection</option>
+              </optgroup>
+            </select><br><br>
+            <section id="eigenmethod">
+              <label for="method">Method</label>
+              <select name="method" id="method" onchange="setOp(value, 1)">
+                <option value="e">auto</option>
+                <option value="q">Francis's QR</option>
+                <option value="h">H2HQR</option>
+                <option value="g">QRGR</option>
+                <option value="s">H2HSRQR</option>
+              </select>
+            </section>
+            <section id="params">
+              <h4><b>Optional Parameters:</b></h4>
+              <label for="txtZeroThreshold">zero Threshold</label><br>
+              <input class="inputParam" id="txtZeroThreshold" type="text" size="6" value="0">
+            </section><br><br><br>
+            <input class="navButton" id="cont" type="button" value="Continue" onclick="goStep2()">
+          </form>
+        </div>
+        <div class="col-right" id="param-col" text-right>
+          <section id="elemtype">
+            <h4><b>Element Type:</b></h4>
+            <input type="radio" id="complex" name="etype" value="C" onclick="setElementType('C')">
+            <label for="complex">Complex</label><br>
+            <input type="radio" id="real" name="etype" value="R" checked="checked" onclick="setElementType('R')">
+            <label for="real">Real</label><br>
+          </section><br>
+          <section id="eigenparams">
+            <h4><b>EigenPairs Parameters:</b></h4>
+            <label for="txtVectorialError">Discrepancy</label><br>
+            <input class="inputParam" id="txtVectorialError" type="text" size="6" value="0">
+            <br>
+            <label for="txtScalarError">Element Error</label><br>
+            <input class="inputParam" id="txtScalarError" type="text" size="6" value="0">
+            <br>
+            <label for="txtMaxIterations">Max Iterations</label><br>
+            <input class="inputParam" id="txtMaxIterations" type="text" size="6" value="0">
+          </section><br>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<form id="currentForm" name="currentForm">
+  <label id="dimensions"></label><br>
+  <label id="operation"></label><br><br>
+  <h3>5) Enter the second matrix operand:</h3>
+  <section id="matrix"></section><br>
+  <button class="cpyButton" id="Copy2Clipboard2" type="button" onclick="copyToClipboard(2)">Copy</button>
+  <input class="pasteInput" id="pasteMatrix2" type="text" value="Paste Matrix here." size="12" onclick="onClearMatrixPasteBox(2)" onpaste="onPasteMatrix(event)">
+  <button class="cpyButton" id="Load_Matrix2" type="button" onclick="loadMatrixFromFile(2)">Load Matrix</button>
+  <button class="cpyButton" id="Save_Matrix2" type="button" onclick="saveMatrixToFile(2)">Save Matrix</button>
+  <button class="cpyButton" id="Memory" type="button" onclick="updateMemoryButtonVisibility(5)">Recall/Store memory</button>
+  <button class="navButton" id="prev" type="button" onclick="goStep4(true)">&lt;-- Prev</button>
+  <button class="navButton" id="next" type="button" onclick="goStep6()">Next --&gt;</button>
+  <div id="MemoryAccess">
+    <br>
+    <label class="memLabel" for="Rcl1">1</label>
+    <label class="memLabel" for="Rcl2">2</label>
+    <label class="memLabel" for="Rcl3">3</label>
+    <label class="memLabel" for="Rcl4">4</label>
+    <label class="memLabel" for="Rcl5"> 5</label>
+    <label class="memLabel" for="Rcl6"> 6</label>
+    <label class="memLabel" for="Rcl7"> 7</label>
+    <label class="memLabel" for="Rcl8"> 8 </label>
+    <label class="memLabel" for="Rcl9"> 9 </label><br>
+    <button class="memButton" id="Rcl1" name="Rcl1" type="button" onclick="onRecall(2, 1)">Rcl</button>
+    <button class="memButton" id="Rcl2" name="Rcl2" type="button" onclick="onRecall(2, 2)">Rcl</button>
+    <button class="memButton" id="Rcl3" name="Rcl3" type="button" onclick="onRecall(2, 3)">Rcl</button>
+    <button class="memButton" id="Rcl4" name="Rcl4" type="button" onclick="onRecall(2, 4)">Rcl</button>
+    <button class="memButton" id="Rcl5" name="Rcl5" type="button" onclick="onRecall(2, 5)">Rcl</button>
+    <button class="memButton" id="Rcl6" name="Rcl6" type="button" onclick="onRecall(2, 6)">Rcl</button>
+    <button class="memButton" id="Rcl7" name="Rcl7" type="button" onclick="onRecall(2, 7)">Rcl</button>
+    <button class="memButton" id="Rcl8" name="Rcl8" type="button" onclick="onRecall(2, 8)">Rcl</button>
+    <button class="memButton" id="Rcl9" name="Rcl9" type="button" onclick="onRecall(2, 9)">Rcl</button><br>
+    <button class="memButton" id="Sto1" name="Sto1" type="button" onclick="onStore(2, 1)">Sto</button>
+    <button class="memButton" id="Sto2" name="Sto2" type="button" onclick="onStore(2, 2)">Sto</button>
+    <button class="memButton" id="Sto3" name="Sto3" type="button" onclick="onStore(2, 3)">Sto</button>
+    <button class="memButton" id="Sto4" name="Sto4" type="button" onclick="onStore(2, 4)">Sto</button>
+    <button class="memButton" id="Sto5" name="Sto5" type="button" onclick="onStore(2, 5)">Sto</button>
+    <button class="memButton" id="Sto6" name="Sto6" type="button" onclick="onStore(2, 6)">Sto</button>
+    <button class="memButton" id="Sto7" name="Sto7" type="button" onclick="onStore(2, 7)">Sto</button>
+    <button class="memButton" id="Sto8" name="Sto8" type="button" onclick="onStore(2, 8)">Sto</button>
+    <button class="memButton" id="Sto9" name="Sto9" type="button" onclick="onStore(2, 9)">Sto</button>
+  </div><br>
+</form>
+

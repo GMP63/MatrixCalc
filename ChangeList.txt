@@ -1,0 +1,309 @@
+# Change List
+=============
+#1.6.2
+Parameter errors at usage() in server help. Server name is now taken from server executable filename.
+Bugs in GUI fixed. console.log() messages removed (or commented out) from Javascript code.
+Bug in html prevented to operate with linear ecuation systems (op = '\').
+
+#1.6.1
+Alternate QR method H2HSRQR (eH2HSRQR) now generates reliable eigenvector matrix.
+Numericalmatrix::operator *= now can be used to multiply matrices having different dimensions using
+the dimension "identity expansion" technique. Bug fixed on it.
+GenericMatrixPrinter<E,I>::printMatrixRowByRow() now have a last optional parameter, the element
+separator (default ",  ").
+Hessemberg format detection added to the input matrix type detection routine, in QR methods:
+(diagonal, (quasi)triangular, Hessemberg).
+Some comments improved and TODO set (some future technical debt).
+
+#1.6
+EigenVectors from a quasi-triangular matrix are obtained and verified OK (unless repeated eigenvalues).
+There is a new private method eigenValuesAndVectors_QuasiTriangular() to accomplish this.
+This method and eigenValuesAndVectors_Triangular() now throw an exception if they found repeated
+eigenvalues. This is due that they cannot continue in this condition.
+Vectorial and scalar errors are now BOTH defaulted to 1e-10, if no parameter are passed ( = 0 ).
+Logger::log() function logs warning messages to console error, in similar error to error messages.
+
+#1.5.3.2
+Using last fix, it allows now to full check result matrix up to 512x512 (order 7)
+in multithreade QFT Matrix Generation and check (transposed conjugated and INVERSE).
+
+#1.5.3.1
+QFT Matrix generation, multithreaded method fixed in test file
+test/src/binomial_complex/binomial_complex_matrixes.cpp
+
+#1.5.3
+Minor change in NumericalMatrix class, avoiding abusing of "if constexpr" construction.
+
+#1.5.2
+Complex number -1i is now printed (serialized) as -i, in the similar way as 1i
+has already been printed (serialized) as i.
+The parameter "zero Threshold" at initial page (Form 1) is used as a threshold to clean up
+the result matrix, from small elements having module smaller than this threshold.
+
+#1.5.1
+Functions createInputMatrix() and printMatrix() now return an array of cell dimentions.
+New functions in io.js : getMinFittingTextWidth() and getElementsSimilarWidth() to obtain
+dimensions of cells having same optimal width in a column.
+Then, this dimention array is now passed to resizeCurrentFormColumnToFit() to make a perfect
+fit between matrix values and its text controls.
+Using let instead of var for all the local variable declarations.
+
+#1.5.0
+New button array (1 to 9) to store/recall matrices in memory.
+By now, intermediate results can be saved in memory for later use.
+This is done in the same way as pre-existent "save to file" and "copy to clipboard".
+Several improvements in Javascript, CSS, and html modules.
+
+#1.4.10
+No functional changes at all. Just changing names of columns and styles in the UI(web page):
+ column1 --> main-col , using style columnl ---> col-left
+ columnr --> param-col , using style columnr ---> col-right
+This will be in concordance with new style col-mem of the new column mem-col to be added in next
+revisions.
+
+#1.4.9
+Operation, and optionally Eigenmethod, are now drop-down list belonging to the reloadable form.
+Step pages are dynamically (re)dimensioned by code, according to widget sizes and operand/result matrix size.
+Then, the use of Bootstrap framework is discontinued.
+New text box to collect the "zero Threshold" value to be used in future releases.
+
+#1.4.8
+Result pair of matrices can now be saved in the same file, and load routine loads only the result
+matrix (Ŕ'mark prepended).
+Scroll bars are now available for big result matrixes (ie. 8x8 complex) but center justified
+page content look had to be changed to left justified.
+
+#1.4.7
+Complete matrix operand load/save from/to text file. Build updated to Ubuntu 24.04 build host.
+Now, the default operation is determinant computation, and the default type is real matrix.
+So, eigenvalue/vector parameter controls are hidden after page load.
+
+#1.4.6
+Complete matrix operands copy/paste to/from clipboard. Copy the result to clipboard implemented too.
+Previous step input matrix is now remembered, just in case step back navigation is required.
+
+#1.4.5
+Application/Server version is injected at build time from version.txt file. Some minor bug fixed.
+
+#1.4.4
+Adaptation to Ubuntu 22.04 - gcc 11.4 . Compile without warnings and round errors in unit test, in both
+systems: Ububtu 20.04 gcc 9.4.0 and Ubuntu 22.04 gcc 11.4.0 .
+
+#1.4.3
+The eigenpair optional computation parameters are now available in the front-end for edition.
+Now, matrices can also be pasted from clipboard, instead of typing it.
+
+#1.4.2.2
+The default value of vectorial error parameter for ALL QR methods was incremented from 1e-12 to 1e-10 .
+This leads to a more realistic value of 0.0001 ppm in the eigenvalue's iteration vector error.
+
+#1.4.2.1
+QR-Gram-Schmidt is now the prefered default method for asymmetric "bad" matrices, while QR-Givens is the
+prefered default method for hermitian or symmetric ones.
+
+## 1.4.2
+Complex arithmetic and eigenpair calculation is now available in the front end (web page).
+Tech Debt: Refine Hide/Show selector controls to define number type, and eigenpair calculation method.
+           Eigenpair method selector show be invisible when the page is first loade.
+           Now these are harcoded to their respective defaults (Complex number and Auto)
+
+## 1.4.1
+Allow new eigenpair methods (real numbers by now) to be available on the command line, for
+eigenvalue/vector operations.
+New operation alias name set consisting of 3 or 4 characters, is now available.
+Typo corrected in usage help output.
+
+## 1.4.0
+Big changes in eigenvalues and eigenvectors calculation for complex matrices ( binomial_complex<double> )
+Several new methods added:
+    eDiag, eTriang, eQRGR, eH2HQR, working perfectly,
+    and eH2HSRQR, eH2HSRQR2S, eQRGRR working OK just for some complementary cases, for "odd" matrixes.
+eQR, the main method, was improved to support convergence to triangular rather than diagonal
+(multiple identical eigenvalues).
+Triangular method to obtain eigenpairs for real and complex matrixes, reduced to similar triangular form.
+Cuasi-triangular method to obtain conjugated complex eigenvalues for real non-symmetric matrixes.
+Exahustive unit testing for all the cases described above (real symmetric, real asymmetric,
+and complex matrixes).
+Technical debt: Bad eigenvector calculation for the cuasi triangular real matrix case,
+                and triangular case having multiple identical eigenvalues.
+Not tested yet : Arnoldi-Tchebyshev (eAHRQRT)
+
+## 1.3.15.1
+Makefile messages, change "building" to "compiling". Improved comment in CommonMatrix.cpp
+
+## 1.3.15
+New Unit test for complex 8x8 matrix calculating its inverse and a linear equation system.
+A bug introduced in last update (1.3.14) was fixed.
+
+## 1.3.14
+BinomialComplex::operator << () improvement. Avoid printing unitary imaginary part.
+That is, if Im part == 1.0 , then just simply puts an 'i'.
+
+## 1.3.13.5
+Adding inverse matrix check of the Quantum Fourier Transform. Up to 64x64 matrix, the round errors
+are kept below 0.006 for these QFT inverse matrixes. Added a new log in the element by element
+matrix comparison function roundTolerantCheckEqualMatrixes().
+
+## 1.3.13.4
+Avoid calling "make" twice in c-cpp.yml
+
+## 1.3.13.3
+Improved version of generate_QFT_matrix_multithread() function. There are less tasks per thread
+(as few as matrix rows) and each task has bigger range of elements (up to matrixOrder / nThreads)
+instead of only one.
+
+## 1.3.13.2
+Multithreaded version of generate_QFT_matrix() function, to be used for testing BIG QFT matrixes.
+
+## 1.3.13.1
+Added a couple of eigenvalues/eigenvectors unit tests for complex 3x3 matrixes.
+Added unit test for cuadratic equation and the case of 3 distinct real roots in cubic equation.
+
+## 1.3.13
+Bug fix, system initialization init() was not called at standalone, test, and server application
+initializations, when no option parameters were present at command line.
+
+## 1.3.12
+Option parameter to omit subindex checking and perform faster public get/set element of the matrix.
+This leads to faster access for building large matixes like Quantum Fourier Transform matrixes,
+till order 2^9 and test it in a couple of seconds (release).
+
+## 1.3.11
+Eigenvalue/vector calculation in complex 3x3 matrices solved, and unit tested ok. This was achieved
+thanks to the solveCubicEquation() function, also properly unit tested ok.
+Additionally solveCuadraticEquation() was added too, but not unit tested yet.
+New function templates to verify the calculated eigenvectors accuracy were added. Thus, they replace
+the old ones that were only suitable for "double" floating point type.
+StandardComplex.h was provided to endow std::complex with arithmetic operations against integer numbers.
+These operators were added/fixed to the BinomialComplex class too.
+Function template to calculate the quantum Fourier transform. and a unit test to test its
+conjugated product property.
+
+## 1.3.10
+Eigenvalue/vector calculation in complex 2x2 matrices solved. Some BinomialComplexParser bugs fixed. Those
+are related to input pure imaginary values, and "i alone" with no number coeficient, eg " i, -i, 3-i ".
+Eigenvector check functions are now function templates, and then moved to a separate file eigenvector_check.
+Some template functions added to namespace utilities: imag(), conjugate(), isReal(), isImag().
+NumericalMatrix class adjustments in dot product for complex types, via utilities::conjugate.
+New methods NumericalMatrix::conjugate() y NumericalMatrix::isHermitiane() for such types.
+New option to launch debugger without previous build.
+
+## 1.3.9
+Complex matrix linear equation system and eigenvalues (autovalues) unit tests were introduced.
+Several bugs at BinomialComplex class, NumericalMatrix class, and Utilities::isNegligible(), were
+therefore discovered and fixed.
+Linear system (3x3) tests and eigenvalues (2x2) tests then executed OK.
+Eigenvector test is still pending of verification.
+
+## 1.3.8
+Besides the error being logged in the case below, a domain error exception is thown in NumericalMatrix
+and catched in MatrixMath.
+
+## 1.3.7
+Adding logger as "always dual" template/module. Like utilities, besides being a template, it IS a MODULE.
+This is because both of them have compilable code inside their .cpp file, that is no dependant of
+the template parameters.
+Many static_assert<> that made impossible some useful matrix template instatiations were eliminated, even
+though they prevented the wrong use of certain template methods according the instantiated type.
+The access to these "forbidden" methods is now allowed, but an error is logged into file or console.
+Then, log macros are added for this purpose to Common and Numeric matrixes. Alternatively this also enable
+copy/move construction paths to be traced. This can be used in a future for performance analisys study.
+Several function template instantiations were removed from the footer of Utilities.cpp .
+
+## 1.3.6
+Now the class BinomialComplex is trivially copyable, like std::complex.
+Special care is taken when copying, filling and cleaning matrixes of non trivially copyable elements.
+
+## 1.3.5
+At last the code is robust enough to compile binomial complex matrixes! A parsing EOF error was fixed.
+Then an elementary parse unit test for these matrixes was successfully added to the suite.
+
+## 1.3.4
+Adding AbsMatrix and AbsMatrixParser to the "cross template" list mentioned below.
+
+## 1.3.3
+Use of "cross template" module files to instantiate template matrix classes with elements that are not
+trivial aritmetic numbers (like std::complex and BinomialComplex for example).
+
+## 1.3.2
+Full template compilations. If the makefile variable TEMPLATE_USAGE is NOT SET to INLINE_MATRIX_TEMPLATE,
+TEMPLATE_USAGE := COMPILE_TEMPLATES for instance, then almost all the templates are compiled as regular
+source code. The exceptions to this new rule are the few interface and abstract classes.
+This allows the total function compilation inside templates. This avoid surprises later (not compiling)
+when new types are added and the makefile flag TEMPLATE_USAGE is returned to INLINE_MATRIX_TEMPLATE.
+Nevertheless, this last setting is the most efficient in executable sizes due functions inside templates
+are only compiled if being used (called).
+
+## 1.3.1
+Parallel matrix operations and algorithms are not enabled all the time. They are now fully dependent
+on the command line switches and setting established in the last version/tag.
+
+## 1.3.0
+Big refactoring: command line switches input, tunning and system parameters storage
+and their defaults, and startup initialization.
+Command line switches for these parameters are now available to all the executables.
+This last feature was carried out by splitting the Parser,
+spawning a new command line optional parameter parser (OptionsParser).
+
+## 1.2.4
+Utilities templates re-written and adaptated for complex numbers.
+Some few unit test for small std::complex matrixes.
+
+## 1.2.3
+Classes BinomialComplex and BinomialComplexParser: unit tests for successful and error paths completed.
+
+## 1.2.2
+OS return code set:
+If the target(s) of the make include(s) "test" (i.e make test , make all , or simply make),
+even though the build was successful, make will return 1 (EXIT_FAILURE) if ANY of the test fails.
+
+## 1.2.1
+BinomialComplexParser unit test: All successful paths completed.
+                                 Just a few Error paths pending to complete.
+BinomialComplex  unit test:  All successful paths completed. There are not error paths yet.
+BinomialComplex class implementation completed.
+
+## 1.2.0
+BinomialComplexParser completed.
+BinomialComplexParser unit test:  pair (duple) and binomial syntaxes - successful paths only tested.
+
+## 1.1.6
+Redundant header includes removed.
+Improvements in some type requeriment comments and assert messages.
+Wrong file name TypeFreeMatrixParser,cpp corrected.
+Improvement in complex utilities::module(). Some other comment improvements.
+
+## 1.1.5
+Parser and unit test improved.
+Typed Parser now supports vectorial notations for parsing std::complex<> arrays.
+Parser unit tests: more exahustive testing of the expected error situations.
+New type std::complex<> is now supported, at least for parsing and comparing matrixes.
+
+## 1.1.4
+Http server launch improvements, now checking parameters before starting the server.
+Signal traping to stop the server and doing a gracefull return to the OS prompt.
+Navigation buttons and input boxes now have improved styles by .css file.
+
+## 1.1.3
+Log improvements, now having timestamp.
+
+## 1.1.2
+Version with web page in colors (at least the background).
+
+## 1.1.1
+Web page improved but still black and white. Web wizard improved and bug fixed.
+New modules in JS to support the wizard. All complex operations are calculated
+  in C++ via embedded server. Trivial operations are left in front end
+  and calculated via Javascript.
+
+## 1.1.0
+Embedded tiny web server and web page wizard to perform unary/binary operations.
+In this initial server embedded version, just linear ecuation system resolution
+could be executed in the server.
+
+## 1.0.0
+First version uploaded to github. Command line, unary/binary matrix operations.
+
+## 1.0
+First version uploaded to github. Command line, unary/binary matrix operations.
+
